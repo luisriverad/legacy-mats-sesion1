@@ -20,6 +20,16 @@ export const Header: React.FC<HeaderProps> = ({ onPrint, onClear }) => (
     }}
   >
     <div>
+      <img
+        src="/profit120-logo.png"
+        alt="Profit120"
+        style={{
+          display: "block",
+          height: 38,
+          width: "auto",
+          marginBottom: 14,
+        }}
+      />
       <div
         style={{
           color: C.black,
