@@ -1,0 +1,87 @@
+:root {
+  --black: #1F2225;
+  --green: #71B248;
+  --green-dark: #5fa03e;
+  --green-light: #a8d088;
+  --amber: #C8A85A;
+  --white: #FFFFFF;
+  --bg: #FFFFFF;
+  --bg-soft: #F6F7F5;
+  --border: #E3E5E0;
+  --border-strong: #1F2225;
+  --muted: #5A5E62;
+  --sky: #EAF0F2;
+  --water: #1F2A30;
+  --water-mid: #2C3A42;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--black);
+}
+
+textarea, input[type="text"] {
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+textarea::placeholder, input::placeholder {
+  color: rgba(31, 34, 37, 0.3);
+  font-style: italic;
+  font-weight: 400;
+}
+
+textarea:focus, input:focus {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 0 2px rgba(113, 178, 72, 0.15) !important;
+}
+
+.print-only { display: none; }
+
+@media print {
+  @page { size: A4 landscape; margin: 6mm; }
+
+  html, body { background: #fff; }
+
+  .no-print { display: none !important; }
+  .screen-only { display: none !important; }
+
+  .print-only { display: block !important; }
+
+  .tab-pane {
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .tab-pane:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .tab-pane-inner {
+    transform: scale(0.7);
+    transform-origin: top left;
+    width: 142.857%;
+    padding: 8px 14px;
+  }
+
+  /* Preserve background colors / borders on printed cards */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
